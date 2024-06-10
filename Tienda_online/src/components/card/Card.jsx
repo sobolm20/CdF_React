@@ -1,10 +1,10 @@
 import React from "react"
 import './Card.css'
 
-const Card = ({ id, wine, winery, image }) => {
+const Card = ({ products }) => {
     return (
         <li key={id}>
-            <img src={image[0]} alt={wine} />
+            <img src={image} alt={wine} />
             <h2>{wine}</h2>
             <p>{winery}</p>
         </li>

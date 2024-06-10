@@ -1,0 +1,11 @@
+section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section > div{
+    display: flex;
+    align-content: center;
+    gap: 10px;
+}
