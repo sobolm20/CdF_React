@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
 import './App.css'
-import Card from './components/card/Card.jsx';
+import Products from './components/products/Products.jsx';
+import Header from './components/header/Header.jsx';
+
 
 // export default function App() {
 //   const [data, setData] = useState("");
@@ -21,35 +22,48 @@ import Card from './components/card/Card.jsx';
 //   )
 // }
 
-
 function App(){
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  const getProduct = async () => {
-    const res = await fetch('https://api.sampleapis.com/wines/reds')
-    const data = await res.json()
-    setProducts(data)
-  }
+  // const {filterProducts} = useContext(FiltersContext)
 
-  const renderProduct = () => {
-    return (
-      <ul>
-        {products.map(({ id, wine, winery, image }) => {
-          return (
-            <Card key={id} id={id} wine={wine} winery={winery} image={image} />
-          )
-        })}
-      </ul>
-    )
-  }
+  // const [filters, setFilters] = useState({
+  //   rating: 0
+  //   winery: "all"
+  // })
 
-  useEffect(() => {
-    getProduct()
-  },[])
+
+  // const getProduct = async () => {
+  //   const res = await fetch('https://api.sampleapis.com/wines/reds')
+  //   const data = await res.json()
+  //   setProducts(data)
+  // }
+
+  // useEffect(() => {
+  //   getProduct()
+  // },[])
+
+  // const filterProducts = (products) => {
+  //   return(
+  //     products.filter ( (products) => {
+  //       return(
+  //         products.rating >= filters.rating &&
+  //         (
+  //           filters.winery == "all" || 
+  //           products.winery == filters.winery
+  //         )
+  //       )
+  //     }
+  //     )
+  //   )
+  // }
+
+  // const filteredProducts = filterProducts(products)
 
 return (
     <>
-      {renderProduct()}
+      <Header />
+      <Products />
     </>
 )
 } 

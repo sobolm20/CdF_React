@@ -5,15 +5,13 @@ import './Products.css'
 import Card from '../card/Card.jsx';
 
   export default function Products(){
-
     const [products, setProducts] = useState([]);
-
     const { filterProducts } = useContext(FiltersContext)
 
     const getProduct = async () => {
       const res = await fetch('https://api.sampleapis.com/wines/reds')
       const data = await res.json()
-      setProducts(data)
+      setProducts(data.products)
     }
   
     useEffect(() => {

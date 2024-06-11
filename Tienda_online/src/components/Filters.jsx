@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { FiltersContext } from "../context/FiltersContext";
+import Products from "./products/Products";
 
 
 const Filters = ({children}) => {
@@ -39,7 +40,7 @@ const Filters = ({children}) => {
                 <label htmlFor="">Winery</label>
                 <select name="winary" id="winery" onChange={handleChangeWinery}>
                     <option value="all">Todos</option>
-                    <option value={products.winery}></option>
+                    <option value={Products.winery}></option>
                 </select>              
             </div>
         </section>

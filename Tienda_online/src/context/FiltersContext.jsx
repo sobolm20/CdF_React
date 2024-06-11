@@ -3,25 +3,33 @@ import { createContext, useState } from "react";
 export const FiltersContext = createContext()
 
 
-export const FiltersProvider = ({children}) => {
+export const FiltersProvider = ({ children }) => {
 
-    const [filters, setFilters] = useState({
-        minPrice: 0,
-        winery: "all"
-    })
+  const [filters, setFilters] = useState({
+    minRating: 0, 
+    winery: "all"
+  })
 
-    const filterProducts = (products) => {
-
-    }
-
-
-
-
+  const filterProducts = (products) => {
     return(
-        <FiltersContext.Provider value={filters,filterProducts,setFilters}>  
-        {children}
-        </FiltersContext.Provider>
+      products.filter ((product) => {
+        return(
+          product.rating >= filters.rating ||
+            (
+            filters.winery == "all" || 
+            product.winery == filters.winery
+            )
+        )
+      }
+      )
     )
+  }
+
+  return(
+    <FiltersContext.Provider value={{filters,filterProducts,setFilters}}>  
+    {children}
+    </FiltersContext.Provider>
+  )
 }
 
 
