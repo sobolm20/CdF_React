@@ -2,7 +2,9 @@ import React from "react"
 import './Card.css'
 
 
-const Card = ({ products }) => {
+const Card = ( {product} ) => {
+    console.log(product);
+    const { id, wine, winery, image } = product
     return (
         <li key={id}>
             <img src={image} alt={wine} />
